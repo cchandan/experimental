@@ -18,14 +18,18 @@ env:
   LASTFM_API_KEY: foo
   LASTFM_API_SECRET: bar
 
+cache:
+  - npm
+  - composer
+
 branches:
   only:
-    - master
+    - npmfix
 
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
-  - npm install
+  - npm install -g npm@latest
 
 script: 
   - phpunit
